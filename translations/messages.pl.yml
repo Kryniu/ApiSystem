@@ -1,0 +1,4 @@
+api:
+  user:
+    sms_notification:
+      account_deleted: Usunięto konto
