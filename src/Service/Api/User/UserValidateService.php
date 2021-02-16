@@ -4,34 +4,22 @@
 namespace App\Service\Api\User;
 
 
-use App\Entity\User;
 use App\Exception\User\EmailAlreadyExistException;
-use App\Exception\User\NotFoundIdException;
 use App\Exception\ValidatorException;
 use App\Repository\UserRepository;
-use App\Util\Api;
 use App\Validator\Api\UserEmailValidator;
 use App\Validator\Api\UserValidator;
-use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class UserValidateService
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $validator;
-    /**
-     * @var UserRepository
-     */
-    private $userRepository;
-
-    public function __construct(ValidatorInterface $validator, UserRepository $userRepository)
+    public function __construct(
+        private ValidatorInterface $validator,
+        private UserRepository $userRepository
+    )
     {
-        $this->validator = $validator;
-        $this->userRepository = $userRepository;
     }
 
     /**

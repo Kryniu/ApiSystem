@@ -14,13 +14,11 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class SmsNotificator
 {
-    private HttpClientInterface $client;
-    private EventDispatcherInterface $dispatcher;
-
-    public function __construct(HttpClientInterface $client, EventDispatcherInterface $dispatcher)
+    public function __construct(
+        private HttpClientInterface $client,
+        private EventDispatcherInterface $dispatcher
+    )
     {
-        $this->client = $client;
-        $this->dispatcher = $dispatcher;
     }
 
     /**

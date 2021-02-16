@@ -20,11 +20,17 @@ class BookController
      * @Route("/add", methods={"POST"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="title",
@@ -61,11 +67,17 @@ class BookController
      * @Route("/update/{id}", requirements={"id"="\d+"}, methods={"PUT"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="title",
@@ -101,11 +113,17 @@ class BookController
      * @Route("/delete/{id}", requirements={"id"="\d+"}, methods={"DELETE"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      */
     public function delete(int $id, BookService $bookService): JsonResponse
@@ -123,11 +141,19 @@ class BookController
      * @Route("/userBook/{userId}", requirements={"userId"="\d+"}, methods={"GET"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="title"),
+     *          @OA\Property(type="string", property="description", format="html"),
+     *          @OA\Property(type="string", property="shortDescription")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      */
     public function userBooks(int $userId, BookService $bookService): JsonResponse
@@ -143,11 +169,17 @@ class BookController
      * @Route("/assign_user_book", methods={"PUT"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="userId",
@@ -182,11 +214,19 @@ class BookController
      * @Route("/search_book", methods={"GET"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message ",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="title"),
+     *          @OA\Property(type="string", property="description", format="html"),
+     *          @OA\Property(type="string", property="shortDescription")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="search",

@@ -20,11 +20,17 @@ class UserController
      * @Route("/add", methods={"POST"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="firstName",
@@ -66,11 +72,17 @@ class UserController
      * @Route("/update/{id}", requirements={"id"="\d+"}, methods={"PUT"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Parameter(
      *     name="firstName",
@@ -112,11 +124,17 @@ class UserController
      * @Route("/delete/{id}", requirements={"id"="\d+"}, methods={"DELETE"})
      * @OA\Response(
      *     response=200,
-     *     description="Returns success message"
+     *     description="Returns success message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      * @OA\Response(
      *     response=400,
-     *     description="Returns error message"
+     *     description="Returns error message",
+     *     @OA\JsonContent(
+     *          @OA\Property(type="string", property="message")
+     *     )
      * )
      */
     public function delete(int $id, UserService $userService): JsonResponse

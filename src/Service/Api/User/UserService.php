@@ -18,22 +18,14 @@ use Throwable;
 
 class UserService extends Api
 {
-    private EntityManagerInterface $entityManager;
-    private UserRepository $userRepository;
-    private UserValidateService $userValidateService;
-    private SmsNotificator $smsNotificator;
-    private TranslatorInterface $translator;
-    private LoggerInterface $logger;
-
-
-    public function __construct(EntityManagerInterface $entityManager, UserRepository $userRepository, UserValidateService $userValidateService, SmsNotificator $smsNotificator, TranslatorInterface $translator, LoggerInterface $logger)
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private UserRepository $userRepository,
+        private UserValidateService $userValidateService,
+        private SmsNotificator $smsNotificator,
+        private TranslatorInterface $translator,
+        private LoggerInterface $logger)
     {
-        $this->entityManager = $entityManager;
-        $this->userRepository = $userRepository;
-        $this->userValidateService = $userValidateService;
-        $this->smsNotificator = $smsNotificator;
-        $this->translator = $translator;
-        $this->logger = $logger;
     }
 
     /**

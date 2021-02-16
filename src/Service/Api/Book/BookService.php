@@ -19,17 +19,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BookService extends Api
 {
-    private EntityManagerInterface $entityManager;
-    private BookRepository $bookRepository;
-    private UserRepository $userRepository;
-    private LoggerInterface $logger;
-
-    public function __construct(EntityManagerInterface $entityManager, BookRepository $bookRepository, UserRepository $userRepository, LoggerInterface $logger)
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private BookRepository $bookRepository,
+        private UserRepository $userRepository,
+        private LoggerInterface $logger
+    )
     {
-        $this->entityManager = $entityManager;
-        $this->bookRepository = $bookRepository;
-        $this->userRepository = $userRepository;
-        $this->logger = $logger;
     }
 
     /**
